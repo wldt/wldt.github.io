@@ -11,7 +11,7 @@ menu:
     parent: ""
     identifier: "change-log-0.3.0-7a14234a44ea9a2cb648e66c783d1e2e"
 weight: 901
-toc: true
+toc: false
 ---
 
 ## Digital Adapters

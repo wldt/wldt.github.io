@@ -10,8 +10,8 @@ menu:
   docs:
     parent: ""
     identifier: "change-log-0.4.0-cb10acf3abf927179eb91d72c7cbae11"
-weight: 999
-toc: true
+weight: 990
+toc: false
 ---
 
 ## New Features
