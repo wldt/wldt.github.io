@@ -22,7 +22,8 @@ Whether you're working on IoT, Industrial IoT (IIoT) applications, Smart Cities 
 - **[Key Contributors]** 
     - Samuele Burattini - University of Bologna, Italy - [(Link)](https://www.unibo.it/sitoweb/samuele.burattini/)
 - **[Additional Contributors]** 
-    - Marta Spadoni - University of Bologna, Italy - Master Thesis 2022    
+    - Marta Spadoni - University of Bologna, Italy - Master Thesis 2022
+    - Mirco Sandonini - University of Modena & Reggio Emilia, Italy - Bachelor Thesis 2025 [(GitHub-Link)](https://github.com/msandonini)    
 
 ### :scroll: Scientitic Citation & References
 
