@@ -14,8 +14,6 @@ weight: 1001
 toc: false
 ---
 
-# WLDT - ChangeLog - 0.6.0
-
 Version 0.6.0 introduces a major architectural refactoring of the WLDT core framework alongside critical bug fixes and functional enhancements. This release focuses on improving semantic clarity, fixing data accessibility issues, and enhancing adapter capabilities.
 
 Key Updates:

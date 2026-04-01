@@ -14,8 +14,6 @@ weight: 1110
 toc: false
 ---
 
-# WLDT - ChangeLog - 0.7.0
-
 Version 0.7.0 introduces the **Augmentation Function** framework, a major feature addition that extends Digital Twin capabilities beyond basic shadowing. This release adds a fully event-driven augmentation layer, comprehensive storage support for augmentation data, new event types on the WLDT Event Bus, and native augmentation-aware callbacks inside the `DigitalTwinModel`.
 
 Key Updates:
