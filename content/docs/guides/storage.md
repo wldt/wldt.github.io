@@ -35,7 +35,8 @@ The main module of the Storage Layer is the one associated to Storage Capabiliti
 	- `removeStorage(String storageId)`: Remove an existing WldtStorage by id from the StorageManager
 - `WldtStorage`: Defines an abstract class allowing the Digital Twin developer to implement its internal storage system for the Digital Twin instance.  
 	- The class defines methods for the management of:  
-		- Digital Twin State storage and retrieval with the associated change list;  
+		* Digital Twin State storage and retrieval with the associated change list;
+		* Digital Twin State Event Notification list;  
 		* Generated State Digital Events;  
 		* Life Cycle State storage and retrieval;  
 		* Physical Asset Description storage and retrieval;  
@@ -203,6 +204,7 @@ if(this.storageManager.isStorageAvailable(TARGET_STORAGE_ID)){
 As previously mentioned, the class `WldtStorage` is an abstract class allowing the developer to implement its internal storage system for the Digital Twin instance. The class defines a set of abstract methods that should be implemented by the developer to shape the management of reading and writing data from and to the target Storage and associated to the identified variations and changes: 
 
 - Digital Twin State 
+- Digital Twin State Event Notification
 - Generated State Digital Events
 - Life Cycle State 
 - Physical Asset Description
@@ -261,6 +263,10 @@ The main classes associated to the Query System are the following:
 		- SAMPLE_RANGE
 		- COUNT
 		- LAST_VALUE
+    - DIGITAL_TWIN_STATE_EVENT_NOTIFICATION
+		- TIME_RANGE
+		- SAMPLE_RANGE
+		- COUNT
 	- NEW_PAD_NOTIFICATION
 		- TIME_RANGE
 		- SAMPLE_RANGE

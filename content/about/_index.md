@@ -20,6 +20,7 @@ Whether you're working on IoT, Industrial IoT (IIoT) applications, Smart Cities 
 - **[Founders & Main Contributors]** 
     - Marco Picone - University of Modena & Reggio Emilia, Italy - [(Link)](https://www.marcopicone.net/)
 - **[Key Contributors]** 
+    - Riccardo Morandi - University of Modena & Reggio Emilia, Italy - [(GitHub-Link)](https://github.com/RiccardoMorandi)
     - Samuele Burattini - University of Bologna, Italy - [(Link)](https://www.unibo.it/sitoweb/samuele.burattini/)
 - **[Additional Contributors]** 
     - Marta Spadoni - University of Bologna, Italy - Master Thesis 2022
@@ -42,6 +43,19 @@ If you use the WLDT Library in a Scientific Paper please use this reference:
     author = {Marco Picone and Marco Mamei and Franco Zambonelli},
     keywords = {Internet of Things, Digital twin, Library, Software agent}
 }
+```
+
+```
+@INPROCEEDINGS{PICONE2025DCOSS,
+  author={Picone, Marco and Martinelli, Matteo and Burattini, Samuele and Giulianelli, Andrea and Ricci, Alessandro},
+  booktitle={2025 21st International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT)}, 
+  title={The Two Faces of Interoperability: Bridging Cyber and Physical Spaces with Digital Twins}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-8},
+  keywords={Adaptation models;Technological innovation;Protocols;Software architecture;Soft sensors;Semantics;Smart systems;Digital twins;Interoperability;Standards;Digital Twins;Industrial Internet of Things;Cyber-Physical Systems;Interoperability},
+  doi={10.1109/DCOSS-IoT65416.2025.00078}}
 ```
 
 ## :incoming_envelope: Community 

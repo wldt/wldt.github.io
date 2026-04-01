@@ -20,6 +20,10 @@ A **Digital Twin** (DT) is a comprehensive software representation of any indivi
 It includes the properties, conditions, relationships, and behavior(s) of the real-life object through models and data.  
 A Digital Twin is a set of realistic models that can digitalize an object’s behavior in the deployed environment and has the responsibility to represent and reflect its physical counterpart over time maintaining its digital replica across the object’s entire lifecycle.
 
+<div style="margin-top: 10px; margin-bottom: 0px;">
+  <img class="center" src="images/dt_high_level_schema.jpg" width="80%">
+</div>
+
 ### What can WLDT do for me?
 
 The White Label Digital Twin (WLDT) library aims to support the design, development, and deployment of Digital Twins within the Internet of Things (IoT) ecosystems.  
