@@ -36,7 +36,7 @@ differentiate between the concept of a relationship and that of an instance of a
 In the first case, we refer to a semantic concept where each relationship, 
 through its ```name``` and the semantic ```type``` of its target, 
 determines the different type of link that the DT can establish. 
-On the other hand, an ```instanc``` of a relationship represents the concrete 
+On the other hand, an ```instance``` of a relationship represents the concrete 
 link present between the DT that establishes it and the target DT. 
 For instance, in the case of a Smart Home, 
 the Bedroom DT may have two relationships in its model: one named ```is_room_of``` and another called ```has_device```. 
