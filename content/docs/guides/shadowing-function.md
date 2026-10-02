@@ -293,6 +293,12 @@ Another fundamental method is ```notifyShadowingSync()``` used to notify the DT 
 the Bounding phase has been correctly completed and the DT has evaluated its  internal status according 
 to what is available and declared through the Physical Adapters.
 
+Each `PhysicalAssetProperty` and `PhysicalAssetEvent` declared in the PAD also exposes its `contentType` (through `getContentType()`) 
+together with its `key` and `type`. The Shadowing Function can use this information to decide how to interpret the value or the payload 
+associated to a Physical Property or Physical Event (e.g., `text/plain` or `application/json`) before mapping it on the DT's State. 
+By default, the content type of a Physical Property is the class name of its initial value (e.g., `java.lang.Double`) while for a Physical Event it 
+is `null` unless it has been explicitly declared by the Physical Adapter.
+
 As mentioned, in the previous example the Shadowing Function does not apply any control or check on the nature of declared 
 physical property. Of course in order to have a more granular control, it will be possible to use property ``Key`` or any other field or even
 the type of the instance through an ```instanceof``` check to implement different controls and behaviours.

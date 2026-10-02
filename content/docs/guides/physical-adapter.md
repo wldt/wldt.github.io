@@ -84,13 +84,15 @@ public void onAdapterStart() {
         //Create an empty PAD
         PhysicalAssetDescription pad = new PhysicalAssetDescription();
         
-        //Add a new Property associated to the target PAD with a key and a default value
-        PhysicalAssetProperty<Double> temperatureProperty = new PhysicalAssetProperty<Double>(TEMPERATURE_PROPERTY_KEY, 0.0);
+        //Add a new Property associated to the target PAD with a key, a type, a content type and a default value.
+        //(The shorter constructor (key, initialValue) is also available: in this case the type is set to the key
+        // and the content type to the class name of the initial value, e.g., java.lang.Double)
+        PhysicalAssetProperty<Double> temperatureProperty = new PhysicalAssetProperty<Double>(TEMPERATURE_PROPERTY_KEY, "temperature.value", "text/plain", 0.0);
         pad.getProperties().add(temperatureProperty);
         
-        //Add the declaration of a new type of generated event associated to a event key
-        // and the content type of the generated payload
-        PhysicalAssetEvent overheatingEvent = new PhysicalAssetEvent(OVERHEATING_EVENT_KEY, "text/plain");
+        //Add the declaration of a new type of generated event associated to a event key, 
+        // an event type and the content type of the generated payload
+        PhysicalAssetEvent overheatingEvent = new PhysicalAssetEvent(OVERHEATING_EVENT_KEY, "overheating.alarm", "text/plain");
         pad.getEvents().add(overheatingEvent);
         
         //Declare the availability of a target action characterized by a Key, an action type
@@ -108,6 +110,20 @@ public void onAdapterStart() {
     }
 }
 ```
+
+Each declared Physical Property, Physical Event and Physical Action is characterized, besides its `key`, by two additional descriptive fields:
+
+- `type`: A free-form label that can be used to associate the element to a specific ontology or data type of the application domain (e.g., `iot.demo.temperature`)
+- `contentType`: Describes how the value or the payload is represented (e.g., `text/plain`, `application/json`). 
+It can be read by the Shadowing Function or by other DT's components through `getContentType()`
+
+In particular:
+
+- `PhysicalAssetProperty`: Supports the constructor `(key, type, contentType, initialValue)` (and the extended one with `immutable` and `writable` flags).
+When using the shorter constructor `(key, initialValue)` the `type` is set to the `key` and the `contentType` is automatically set to the class name 
+of the initial value (e.g., `java.lang.Double`) 
+- `PhysicalAssetEvent`: Supports the constructor `(key, type, contentType)`. When using the constructor `(key, type)` the `contentType` is `null`
+- `PhysicalAssetAction`: Supports the constructor `(key, type, contentType)` where the `contentType` identifies the expected content type of the action's request body
 
 Now we need a simple code to emulate the generation of new temperature measurements and over-heating events.
 In a real Physical Adapter implementation we have to implement the real communication with the physical twin in
@@ -238,13 +254,13 @@ public class DemoPhysicalAdapter extends PhysicalAdapter {
             //Create an empty PAD
             PhysicalAssetDescription pad = new PhysicalAssetDescription();
 
-            //Add a new Property associated to the target PAD with a key and a default value
-            PhysicalAssetProperty<Double> temperatureProperty = new PhysicalAssetProperty<Double>(GlobalKeywords.TEMPERATURE_PROPERTY_KEY, 0.0);
+            //Add a new Property associated to the target PAD with a key, a type, a content type and a default value
+            PhysicalAssetProperty<Double> temperatureProperty = new PhysicalAssetProperty<Double>(GlobalKeywords.TEMPERATURE_PROPERTY_KEY, "temperature.value", "text/plain", 0.0);
             pad.getProperties().add(temperatureProperty);
 
-            //Add the declaration of a new type of generated event associated to a event key
-            // and the content type of the generated payload
-            PhysicalAssetEvent overheatingEvent = new PhysicalAssetEvent(GlobalKeywords.OVERHEATING_EVENT_KEY, "text/plain");
+            //Add the declaration of a new type of generated event associated to a event key,
+            // an event type and the content type of the generated payload
+            PhysicalAssetEvent overheatingEvent = new PhysicalAssetEvent(GlobalKeywords.OVERHEATING_EVENT_KEY, "overheating.alarm", "text/plain");
             pad.getEvents().add(overheatingEvent);
 
             //Declare the availability of a target action characterized by a Key, an action type
