@@ -20,7 +20,7 @@ Whether you're working on IoT, Industrial IoT (IIoT) applications, Smart Cities 
 - **[Founders & Main Contributors]** 
     - Marco Picone - University of Modena & Reggio Emilia, Italy - [(Link)](https://www.marcopicone.net/)
 - **[Key Contributors]** 
-    - Riccardo Morandi - University of Modena & Reggio Emilia, Italy - [(GitHub-Link)](https://github.com/RiccardoMorandi)
+    - Riccardo Morandi - University of Modena & Reggio Emilia, Italy - [(Link)](https://morandiriccardo.com/)
     - Samuele Burattini - University of Bologna, Italy - [(Link)](https://www.unibo.it/sitoweb/samuele.burattini/)
 - **[Additional Contributors]** 
     - Marta Spadoni - University of Bologna, Italy - Master Thesis 2022
