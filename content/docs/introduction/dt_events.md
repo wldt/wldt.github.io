@@ -39,6 +39,7 @@ Those events maps every bidirectional interaction with the Physical Asset (or mu
 Each Physical Property, Physical Event and Physical Action declared in the PAD is identified by a `key` and characterized by a `type` (e.g., an ontology or domain-specific data type) 
 and by a `contentType` describing how its value or payload is represented (e.g., `text/plain`, `application/json`). 
 For Physical Properties the content type defaults to the class name of the initial value (e.g., `java.lang.Double`).
+From version `0.8.1` the same `type` and `contentType` fields are also carried by the corresponding resources of the Digital Twin State (properties, events and actions).
 
 ## Digital Twin's Events
 

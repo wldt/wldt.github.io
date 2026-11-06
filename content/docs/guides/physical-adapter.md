@@ -121,8 +121,8 @@ In particular:
 
 - `PhysicalAssetProperty`: Supports the constructor `(key, type, contentType, initialValue)` (and the extended one with `immutable` and `writable` flags).
 When using the shorter constructor `(key, initialValue)` the `type` is set to the `key` and the `contentType` is automatically set to the class name 
-of the initial value (e.g., `java.lang.Double`) 
-- `PhysicalAssetEvent`: Supports the constructor `(key, type, contentType)`. When using the constructor `(key, type)` the `contentType` is `null`
+of the initial value (e.g., `java.lang.Double`). The constructor `(key, type, initialValue)` is **deprecated** since `0.8.1` and will be removed in `0.9.0`
+- `PhysicalAssetEvent`: Supports the constructor `(key, type, contentType)`. The constructor `(key, type)` (where the `contentType` is `null`) is **deprecated** since `0.8.1` and will be removed in `0.9.0`
 - `PhysicalAssetAction`: Supports the constructor `(key, type, contentType)` where the `contentType` identifies the expected content type of the action's request body
 
 Now we need a simple code to emulate the generation of new temperature measurements and over-heating events.

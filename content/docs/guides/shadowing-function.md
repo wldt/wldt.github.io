@@ -216,7 +216,7 @@ protected void onDigitalTwinBound(Map<String, PhysicalAssetDescription> adapters
                 try {
                     
                     //Create and write the property on the DT's State
-                    this.digitalTwinState.createProperty(new DigitalTwinStateProperty<>(property.getKey(),(Double) property.getInitialValue()));
+                    this.digitalTwinState.createProperty(new DigitalTwinStateProperty<>(property.getKey(), (Double) property.getInitialValue(), property.getType(), property.getContentType()));
             
                     //Start observing the variation of the physical property in order to receive notifications
                     //Without this call the Shadowing Function will not receive any notifications or callback about
@@ -232,8 +232,8 @@ protected void onDigitalTwinBound(Map<String, PhysicalAssetDescription> adapters
             pad.getEvents().forEach(event -> {
                 try {
 
-                    //Instantiate a new DT State Event with the same key and type
-                    DigitalTwinStateEvent dtStateEvent = new DigitalTwinStateEvent(event.getKey(), event.getType());
+                    //Instantiate a new DT State Event with the same key, type and content type
+                    DigitalTwinStateEvent dtStateEvent = new DigitalTwinStateEvent(event.getKey(), event.getType(), event.getContentType());
 
                     //Create and write the event on the DT's State
                     this.digitalTwinState.registerEvent(dtStateEvent);
@@ -299,6 +299,10 @@ associated to a Physical Property or Physical Event (e.g., `text/plain` or `appl
 By default, the content type of a Physical Property is the class name of its initial value (e.g., `java.lang.Double`) while for a Physical Event it 
 is `null` unless it has been explicitly declared by the Physical Adapter.
 
+From version `0.8.1` the same two fields are also available on the Digital Twin State resources: `DigitalTwinStateProperty`, `DigitalTwinStateEvent` and `DigitalTwinStateAction` 
+all carry a semantic `type` and a `contentType`. When mapping the PAD on the DT's State, the Shadowing Function should copy both `getType()` and `getContentType()`, as shown in the following examples. 
+The constructors with only the `type` are deprecated and will be removed in `0.9.0`.
+
 As mentioned, in the previous example the Shadowing Function does not apply any control or check on the nature of declared 
 physical property. Of course in order to have a more granular control, it will be possible to use property ``Key`` or any other field or even
 the type of the instance through an ```instanceof``` check to implement different controls and behaviours.
@@ -316,7 +320,7 @@ pad.getProperties().forEach(property -> {
                 &&  property.getInitialValue() instanceof Double) {
 
             //Instantiate a new DT State Property of the right type, the same key and initial value
-            DigitalTwinStateProperty<Double> dtStateProperty = new DigitalTwinStateProperty<Double>(property.getKey(),(Double) property.getInitialValue());
+            DigitalTwinStateProperty<Double> dtStateProperty = new DigitalTwinStateProperty<Double>(property.getKey(), (Double) property.getInitialValue(), property.getType(), property.getContentType());
 
             //Create and write the property on the DT's State
             this.digitalTwinState.createProperty(dtStateProperty);
@@ -361,7 +365,9 @@ protected void onPhysicalAssetPropertyVariation(PhysicalAssetPropertyWldtEvent<?
       //NEW from 0.3.0 -> Start State Transaction
       this.digitalTwinStateManager.startStateTransaction();
 
-      this.digitalTwinState.updateProperty(new DigitalTwinStateProperty<>(physicalPropertyEventMessage.getPhysicalPropertyId(), physicalPropertyEventMessage.getBody()));
+      //From 0.8.1 -> use updatePropertyValue() to change only the value and keep the type and contentType of the property
+      //(updateProperty() replaces the whole property and resets them to the Class name of the value)
+      this.digitalTwinState.updatePropertyValue(physicalPropertyEventMessage.getPhysicalPropertyId(), physicalPropertyEventMessage.getBody());
 
       //NEW from 0.3.0 -> Commit State Transaction
       this.digitalTwinStateManager.commitStateTransaction();
